@@ -1,0 +1,73 @@
+import yaml
+
+model:
+  type: HistGradientBoostingClassifier
+  hyperparameters:
+    learning_rate: [0.05]
+    max_iter: [100]
+    max_leaf_nodes: [15]
+    min_samples_leaf: [30]
+    l2_regularization: [0]
+    cv: 3  
+    scoring: accuracy
+  features:
+    - thickness
+    - diameter
+    - weight
+    - axis
+    - axis_known
+    - Primary Material_n
+    - Manufacture Method_n
+  target: period
+  evaluation_metrics:
+    accuracy: 0.92
+    per_class_metrics:
+      class_0:
+        precision: 0.96
+        recall: 0.89
+        f1_score: 0.93
+        support: 259
+      class_1:
+        precision: 0.99
+        recall: 0.98
+        f1_score: 0.99
+        support: 105
+      class_2:
+        precision: 0.88
+        recall: 0.92
+        f1_score: 0.90
+        support: 428
+      class_3:
+        precision: 0.90
+        recall: 0.88
+        f1_score: 0.89
+        support: 429
+      class_4:
+        precision: 0.93
+        recall: 0.98
+        f1_score: 0.95
+        support: 241
+    average_metrics:
+      macro_avg:
+        precision: 0.93
+        recall: 0.93
+        f1_score: 0.93
+        support: 1462
+      weighted_avg:
+        precision: 0.92
+        recall: 0.92
+        f1_score: 0.92
+        support: 1462
+    confusion_matrix:
+      - [231,  0, 19,  9,  0]
+      - [  0, 103,  0,  1,  1]
+      - [  5,  0, 392, 29,  2]
+      - [  4,  0, 33, 378, 14]
+      - [  0,  1,  3,  2, 235]
+  libraries:
+    scikit-learn: "1.6.1"
+    numpy: "2.0.2"
+    pandas: "2.2.3"
+
+with open("models/model_config.yaml", "w") as file:
+    yaml.dump(model_config, file, default_flow_style=False)
