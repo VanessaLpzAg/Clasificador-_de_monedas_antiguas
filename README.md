@@ -136,15 +136,3 @@ La aplicación se encuentra en la carpeta `app_streamlit/`, y para ejecutarla, u
 ```bash
 streamlit run app_streamlit/app.py
 ```
-
-Asegúrate de instalar las dependencias con:
-
-```bash
-pip install -r app_streamlit/requirements.txt
-```
-
----
-
-
-
----
