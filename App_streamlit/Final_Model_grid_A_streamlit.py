@@ -12,6 +12,43 @@ st.set_page_config(
     layout='wide'
 )
 
+# CSS personalizado para el fondo y los colores de los sliders y pestañas
+st.markdown(
+    """
+    <style>
+    .stApp {
+        background-color: #01001b;        
+    }
+    /* Cambiar el color de los sliders */
+    .stSlider .st-eb {
+        background-color: #679bfe !important;
+    }
+    .stSlider .st-ec {
+        background-color: #679bfe !important;
+    }
+    .stSlider .st-ed {
+        background-color: #679bfe !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+NB = st.slider
+
+
+ColorMinMax = st.markdown(''' <style> div.stSlider > div[data-baseweb = "slider"] > div[data-testid="stTickBar"] > div {
+    background: rgb(1 1 1 / 0%); } </style>''', unsafe_allow_html = True)
+
+
+Slider_Cursor = st.markdown(''' <style> div.stSlider > div[data-baseweb="slider"] > div > div > div[role="slider"]{
+    background-color: rgb(103, 155, 254); box-shadow: rgb(14 38 74 / 20%) 0px 0px 0px 0.2rem;} </style>''', unsafe_allow_html = True)
+
+    
+Slider_Number = st.markdown(''' <style> div.stSlider > div[data-baseweb="slider"] > div > div > div > div
+                                { color: rgb(103, 155, 254); } </style>''', unsafe_allow_html = True)
+    
+
 # Cargar la plantilla de título y descripción.
 st.markdown('''<div style="position: relative; width: 100%; height: 0; padding-top: 25.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
